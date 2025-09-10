@@ -1,0 +1,27 @@
+# Game Edukasi "Who Does What?"
+
+## Deskripsi
+Game edukasi interaktif untuk anak usia 3-4 tahun yang mengajarkan susunan kalimat sederhana melalui drag & drop.
+
+## Fitur
+- Drag & drop interface yang mudah digunakan
+- Visual feedback dengan animasi
+- Audio feedback dalam bahasa Indonesia
+- Progressive levels
+- Mobile-first design
+
+## Teknologi
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- @dnd-kit
+- Framer Motion
+- Howler.js
+
+## Cara Menjalankan
+1. `npm install`
+2. `npm run dev`
+3. Buka `http://localhost:3000`
+
+## Build
+`npm run build && npm start`
