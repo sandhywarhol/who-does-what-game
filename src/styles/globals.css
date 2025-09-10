@@ -5,10 +5,31 @@
 @layer base {
   html {
     font-family: 'Comic Sans MS', cursive;
+    /* Mobile optimization */
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
   
   body {
     @apply bg-gradient-to-br from-primary-50 to-secondary-50 min-h-screen;
+    /* Prevent zoom on double tap */
+    touch-action: manipulation;
+    /* Smooth scrolling */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Mobile-specific optimizations */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Prevent text selection on drag elements */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }
 
@@ -26,18 +47,40 @@
   }
   
   .slot-empty {
-    @apply border-4 border-dashed border-gray-300 bg-gray-50 rounded-2xl;
+    @apply border-2 sm:border-4 border-dashed border-gray-300 bg-gray-50 rounded-xl sm:rounded-2xl;
   }
   
   .slot-filled {
-    @apply border-4 border-solid border-primary-500 bg-primary-50 rounded-2xl;
+    @apply border-2 sm:border-4 border-solid border-primary-500 bg-primary-50 rounded-xl sm:rounded-2xl;
   }
   
   .slot-correct {
-    @apply border-4 border-solid border-green-500 bg-green-50 rounded-2xl;
+    @apply border-2 sm:border-4 border-solid border-green-500 bg-green-50 rounded-xl sm:rounded-2xl;
   }
   
   .slot-incorrect {
-    @apply border-4 border-solid border-red-500 bg-red-50 rounded-2xl animate-pulse;
+    @apply border-2 sm:border-4 border-solid border-red-500 bg-red-50 rounded-xl sm:rounded-2xl animate-pulse;
+  }
+  
+  /* Mobile touch optimizations */
+  .touch-optimized {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Mobile-friendly animations */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-pulse-slow {
+      animation: none;
+    }
+    
+    .animate-bounce-slow {
+      animation: none;
+    }
   }
 }

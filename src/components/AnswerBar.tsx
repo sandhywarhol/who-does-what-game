@@ -45,13 +45,13 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
       transition={{ duration: 0.2 }}
       className={`
         ${getSlotClass()}
-        min-h-[120px] min-w-[100px] flex flex-col items-center justify-center
-        transition-all duration-300 relative
-        ${isOver ? 'ring-4 ring-primary-300 ring-opacity-50' : ''}
+        min-h-[80px] min-w-[70px] sm:min-h-[120px] sm:min-w-[100px] flex flex-col items-center justify-center
+        transition-all duration-300 relative touch-manipulation
+        ${isOver ? 'ring-2 sm:ring-4 ring-primary-300 ring-opacity-50' : ''}
       `}
     >
       {/* Slot Label */}
-      <div className="text-sm font-bold text-gray-600 font-comic mb-2">
+      <div className="text-xs sm:text-sm font-bold text-gray-600 font-comic mb-1 sm:mb-2">
         {getSlotLabel()}
       </div>
       
@@ -63,15 +63,15 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
           transition={{ duration: 0.3, type: "spring" }}
           className="flex flex-col items-center"
         >
-          <div className="text-4xl mb-1">
+          <div className="text-2xl sm:text-4xl mb-0.5 sm:mb-1">
             {card.emoji || '🎨'}
           </div>
-          <div className="text-sm font-bold text-gray-800 font-comic">
+          <div className="text-xs sm:text-sm font-bold text-gray-800 font-comic">
             {card.label}
           </div>
         </motion.div>
       ) : (
-        <div className="text-gray-400 text-2xl">
+        <div className="text-gray-400 text-lg sm:text-2xl">
           {type === 'person' ? '👤' : type === 'action' ? '⚡' : '📦'}
         </div>
       )}
@@ -81,9 +81,9 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center"
+          className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-full flex items-center justify-center"
         >
-          <span className="text-white text-lg">✓</span>
+          <span className="text-white text-sm sm:text-lg">✓</span>
         </motion.div>
       )}
       
@@ -91,9 +91,9 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="absolute -top-2 -right-2 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center"
+          className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-full flex items-center justify-center"
         >
-          <span className="text-white text-lg">✗</span>
+          <span className="text-white text-sm sm:text-lg">✗</span>
         </motion.div>
       )}
     </motion.div>
@@ -117,12 +117,12 @@ export const AnswerBar: React.FC<AnswerBarProps> = ({ slots }) => {
       transition={{ duration: 0.6, delay: 0.2 }}
       className="w-full max-w-2xl mx-auto"
     >
-      <div className="bg-white rounded-3xl p-6 card-shadow">
-        <h3 className="text-xl font-bold text-center text-gray-800 font-comic mb-4">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 card-shadow">
+        <h3 className="text-lg sm:text-xl font-bold text-center text-gray-800 font-comic mb-3 sm:mb-4">
           Susun Kalimatnya! 📝
         </h3>
         
-        <div className="flex justify-center items-center gap-4 flex-wrap">
+        <div className="flex justify-center items-center gap-2 sm:gap-4 flex-wrap">
           {slots.map((slot, index) => (
             <AnswerSlot
               key={slot.id}
@@ -136,9 +136,9 @@ export const AnswerBar: React.FC<AnswerBarProps> = ({ slots }) => {
         </div>
         
         {/* Arrow indicators */}
-        <div className="flex justify-center items-center mt-4 gap-2">
-          <span className="text-gray-400">→</span>
-          <span className="text-gray-400">→</span>
+        <div className="flex justify-center items-center mt-3 sm:mt-4 gap-1 sm:gap-2">
+          <span className="text-gray-400 text-sm sm:text-base">→</span>
+          <span className="text-gray-400 text-sm sm:text-base">→</span>
         </div>
       </div>
     </motion.div>

@@ -13,18 +13,18 @@ export const SceneView: React.FC<SceneViewProps> = ({
   description 
 }) => {
   return (
-    <div className="w-full max-w-md mx-auto mb-8">
+    <div className="w-full max-w-md mx-auto mb-4 sm:mb-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="relative bg-white rounded-3xl p-8 card-shadow"
+        className="relative bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 card-shadow"
       >
         {/* Scene Image */}
-        <div className="flex justify-center items-center h-48 mb-4">
+        <div className="flex justify-center items-center h-32 sm:h-48 mb-3 sm:mb-4">
           {sceneEmoji ? (
             <motion.div
-              className="text-8xl"
+              className="text-6xl sm:text-8xl"
               animate={{ 
                 scale: [1, 1.05, 1], // Kurangi animasi untuk performa lebih baik
                 rotate: [0, 2, -2, 0] // Kurangi rotasi
@@ -46,7 +46,7 @@ export const SceneView: React.FC<SceneViewProps> = ({
                 // Fallback ke emoji jika gambar gagal load
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
-                target.parentElement!.innerHTML = `<div class="text-8xl">${sceneEmoji || '🎨'}</div>`;
+                target.parentElement!.innerHTML = `<div class="text-6xl sm:text-8xl">${sceneEmoji || '🎨'}</div>`;
               }}
             />
           )}
@@ -59,14 +59,14 @@ export const SceneView: React.FC<SceneViewProps> = ({
           transition={{ delay: 0.3, duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-2xl font-bold text-gray-800 font-comic">
+          <h2 className="text-lg sm:text-2xl font-bold text-gray-800 font-comic">
             {description}
           </h2>
         </motion.div>
         
         {/* Decorative elements */}
-        <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary-400 rounded-full animate-pulse-slow"></div>
-        <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-secondary-400 rounded-full animate-bounce-slow"></div>
+        <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-4 h-4 sm:w-6 sm:h-6 bg-primary-400 rounded-full animate-pulse-slow"></div>
+        <div className="absolute -bottom-1 -left-1 sm:-bottom-2 sm:-left-2 w-3 h-3 sm:w-4 sm:h-4 bg-secondary-400 rounded-full animate-bounce-slow"></div>
       </motion.div>
     </div>
   );

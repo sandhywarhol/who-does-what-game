@@ -218,19 +218,22 @@ export default function Game() {
   }
 
   return (
-    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <div className="min-h-screen p-4">
+    <DndContext 
+      onDragStart={handleDragStart} 
+      onDragEnd={handleDragEnd}
+    >
+      <div className="min-h-screen p-2 sm:p-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8"
+            className="text-center mb-4 sm:mb-8"
           >
-            <h1 className="text-4xl font-bold text-primary-600 font-comic mb-2">
+            <h1 className="text-2xl sm:text-4xl font-bold text-primary-600 font-comic mb-2">
               Who Does What? 🎯
             </h1>
-            <p className="text-lg text-gray-600 font-comic">
+            <p className="text-sm sm:text-lg text-gray-600 font-comic">
               Susun kartu untuk membuat kalimat yang benar!
             </p>
           </motion.div>
@@ -261,14 +264,14 @@ export default function Game() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="w-full max-w-4xl mx-auto mt-8"
+            className="w-full max-w-4xl mx-auto mt-4 sm:mt-8"
           >
-            <div className="bg-white rounded-3xl p-6 card-shadow">
-              <h3 className="text-xl font-bold text-center text-gray-800 font-comic mb-4">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 card-shadow">
+              <h3 className="text-lg sm:text-xl font-bold text-center text-gray-800 font-comic mb-3 sm:mb-4">
                 Pilih Kartunya! 🃏
               </h3>
               
-              <div className="flex justify-center items-center gap-4 flex-wrap">
+              <div className="flex justify-center items-center gap-2 sm:gap-4 flex-wrap">
                 {shuffledCards.map((card) => (
                   <CardComponent
                     key={card.id}

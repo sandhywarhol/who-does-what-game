@@ -43,25 +43,26 @@ export const CardComponent: React.FC<CardComponentProps> = ({
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.2 }}
       className={`
-        relative bg-white rounded-2xl p-4 card-shadow card-hover cursor-pointer
+        relative bg-white rounded-xl sm:rounded-2xl p-2 sm:p-4 card-shadow card-hover cursor-pointer
         ${isDragging ? 'z-50' : 'z-10'}
         ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}
-        min-w-[120px] min-h-[140px] flex flex-col items-center justify-center
+        min-w-[80px] min-h-[100px] sm:min-w-[120px] sm:min-h-[140px] flex flex-col items-center justify-center
+        touch-manipulation select-none
       `}
     >
       {/* Card Image/Emoji */}
-      <div className="text-6xl mb-2">
+      <div className="text-4xl sm:text-6xl mb-1 sm:mb-2">
         {card.emoji || '🎨'}
       </div>
       
       {/* Card Label */}
-      <div className="text-lg font-bold text-gray-800 font-comic text-center">
+      <div className="text-sm sm:text-lg font-bold text-gray-800 font-comic text-center">
         {card.label}
       </div>
       
       {/* Card Type Indicator */}
       <div className={`
-        absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold
+        absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-4 h-4 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-xs font-bold
         ${card.type === 'person' ? 'bg-blue-400 text-white' : ''}
         ${card.type === 'action' ? 'bg-green-400 text-white' : ''}
         ${card.type === 'object' ? 'bg-orange-400 text-white' : ''}
@@ -71,7 +72,7 @@ export const CardComponent: React.FC<CardComponentProps> = ({
       
       {/* Drag indicator */}
       {!isDisabled && (
-        <div className="absolute bottom-1 right-1 text-gray-400 text-xs">
+        <div className="absolute bottom-0.5 right-0.5 sm:bottom-1 sm:right-1 text-gray-400 text-xs">
           👆
         </div>
       )}
