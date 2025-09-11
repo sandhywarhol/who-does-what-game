@@ -25,9 +25,9 @@ export const HUD: React.FC<HUDProps> = ({
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="w-full max-w-4xl mx-auto mb-1 sm:mb-3 ipad-pro:mb-6"
+      className="w-full max-w-4xl mx-auto mb-1 sm:mb-3 ipad-pro:mb-6 ipados-optimized"
     >
-      <div className="bg-white rounded-2xl sm:rounded-3xl ipad-pro:rounded-4xl p-2 sm:p-4 ipad-pro:p-6 card-shadow">
+      <div className="bg-white rounded-2xl sm:rounded-3xl ipad-pro:rounded-4xl p-2 sm:p-4 ipad-pro:p-6 card-shadow ipad-pro-landscape">
         <div className="flex justify-between items-center flex-wrap gap-1 sm:gap-4 ipad-pro:gap-6">
           {/* Left side - Progress */}
           <div className="flex items-center gap-1 sm:gap-4 ipad-pro:gap-6">

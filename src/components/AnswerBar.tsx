@@ -46,7 +46,7 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
       className={`
         ${getSlotClass()}
         min-h-[100px] min-w-[90px] sm:min-h-[120px] sm:min-w-[110px] ipad-pro:min-h-[140px] ipad-pro:min-w-[130px] flex flex-col items-center justify-center
-        transition-all duration-300 relative droppable-slot
+        transition-all duration-300 relative droppable-slot ipad-pro-optimized
         ${isOver ? 'ring-2 sm:ring-4 ipad-pro:ring-6 ring-primary-300 ring-opacity-50' : ''}
       `}
     >
@@ -115,9 +115,9 @@ export const AnswerBar: React.FC<AnswerBarProps> = ({ slots }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="w-full max-w-3xl mx-auto mb-1 sm:mb-2 ipad-pro:mb-4"
+      className="w-full max-w-3xl mx-auto mb-1 sm:mb-2 ipad-pro:mb-4 ipados-optimized"
     >
-      <div className="bg-white rounded-2xl sm:rounded-3xl ipad-pro:rounded-4xl p-2 sm:p-4 ipad-pro:p-6 card-shadow">
+      <div className="bg-white rounded-2xl sm:rounded-3xl ipad-pro:rounded-4xl p-2 sm:p-4 ipad-pro:p-6 card-shadow ipad-pro-landscape">
         <h3 className="text-sm sm:text-lg ipad-pro:text-xl font-bold text-center text-gray-800 font-comic mb-1 sm:mb-3 ipad-pro:mb-4">
           Arrange the Sentence! 📝
         </h3>

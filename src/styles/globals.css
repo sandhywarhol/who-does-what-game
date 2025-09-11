@@ -105,14 +105,40 @@
     -webkit-tap-highlight-color: transparent;
   }
   
-  /* Mobile-friendly animations */
-  @media (prefers-reduced-motion: reduce) {
-    .animate-pulse-slow {
-      animation: none;
+  /* iPad Pro 11-inch 2nd generation specific optimizations */
+  @media screen and (min-width: 820px) and (max-width: 1024px) {
+    /* iPad Pro 11-inch 2nd generation specific styles */
+    .ipad-pro-optimized {
+      /* Better touch targets for iPad Pro */
+      min-height: 48px;
+      min-width: 48px;
     }
     
-    .animate-bounce-slow {
-      animation: none;
+    /* Optimize for iPadOS 18.6.2 */
+    .ipados-optimized {
+      /* Smooth scrolling for iPadOS */
+      -webkit-overflow-scrolling: touch;
+      /* Better text rendering */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+  
+  /* iPad Pro 11-inch 2nd generation landscape mode */
+  @media screen and (min-width: 820px) and (max-width: 1024px) and (orientation: landscape) {
+    .ipad-pro-landscape {
+      /* Optimize for landscape orientation */
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+  }
+  
+  /* iPad Pro 11-inch 2nd generation portrait mode */
+  @media screen and (min-width: 820px) and (max-width: 1024px) and (orientation: portrait) {
+    .ipad-pro-portrait {
+      /* Optimize for portrait orientation */
+      max-width: 100vw;
+      overflow-x: auto;
     }
   }
 }

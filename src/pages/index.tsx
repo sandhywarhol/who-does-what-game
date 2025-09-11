@@ -378,8 +378,8 @@ export default function Game() {
       onDragEnd={handleDragEnd}
       collisionDetection={closestCenter}
     >
-      <div className="min-h-screen p-1 sm:p-2 ipad-pro:p-4">
-        <div className="max-w-6xl mx-auto ipad-pro:max-w-7xl">
+      <div className="min-h-screen p-1 sm:p-2 ipad-pro:p-4 ipados-optimized">
+        <div className="max-w-6xl mx-auto ipad-pro:max-w-7xl ipad-pro-portrait">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}

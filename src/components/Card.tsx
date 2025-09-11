@@ -45,7 +45,7 @@ export const CardComponent: React.FC<CardComponentProps> = ({
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.2 }}
       className={`
-        relative bg-white rounded-xl sm:rounded-2xl ipad-pro:rounded-3xl p-2 sm:p-3 ipad-pro:p-4 card-shadow card-hover cursor-grab active:cursor-grabbing draggable-card
+        relative bg-white rounded-xl sm:rounded-2xl ipad-pro:rounded-3xl p-2 sm:p-3 ipad-pro:p-4 card-shadow card-hover cursor-grab active:cursor-grabbing draggable-card ipad-pro-optimized
         ${isDragging ? 'z-50 cursor-grabbing' : 'z-10'}
         ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}
         min-w-[80px] min-h-[100px] sm:min-w-[100px] sm:min-h-[120px] ipad-pro:min-w-[120px] ipad-pro:min-h-[140px] flex flex-col items-center justify-center

@@ -7,13 +7,15 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        // iPad Pro 11 inch (2388x1668)
-        'ipad-pro': '834px',
+        // iPad Pro 11-inch 2nd generation (2388x1668) - lebih akurat
+        'ipad-pro': '820px',
         // iPad Pro 12.9 inch (2732x2048)
         'ipad-pro-lg': '1024px',
         // Custom breakpoints for better tablet experience
         'tablet': '768px',
         'tablet-lg': '1024px',
+        // iPadOS 18.6.2 specific optimizations
+        'ipados': '820px',
       },
       colors: {
         primary: {
