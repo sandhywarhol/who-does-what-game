@@ -45,8 +45,8 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
       transition={{ duration: 0.2 }}
       className={`
         ${getSlotClass()}
-        min-h-[80px] min-w-[70px] sm:min-h-[120px] sm:min-w-[100px] flex flex-col items-center justify-center
-        transition-all duration-300 relative touch-manipulation
+        min-h-[100px] min-w-[90px] sm:min-h-[120px] sm:min-w-[110px] flex flex-col items-center justify-center
+        transition-all duration-300 relative droppable-slot
         ${isOver ? 'ring-2 sm:ring-4 ring-primary-300 ring-opacity-50' : ''}
       `}
     >
@@ -63,7 +63,7 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
           transition={{ duration: 0.3, type: "spring" }}
           className="flex flex-col items-center"
         >
-          <div className="text-2xl sm:text-4xl mb-0.5 sm:mb-1">
+          <div className="text-3xl sm:text-4xl mb-1 sm:mb-1">
             {card.emoji || '🎨'}
           </div>
           <div className="text-xs sm:text-sm font-bold text-gray-800 font-comic">
@@ -115,11 +115,11 @@ export const AnswerBar: React.FC<AnswerBarProps> = ({ slots }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="w-full max-w-2xl mx-auto"
+      className="w-full max-w-3xl mx-auto mb-1 sm:mb-2"
     >
-      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 card-shadow">
-        <h3 className="text-lg sm:text-xl font-bold text-center text-gray-800 font-comic mb-3 sm:mb-4">
-          Susun Kalimatnya! 📝
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-4 card-shadow">
+        <h3 className="text-sm sm:text-lg font-bold text-center text-gray-800 font-comic mb-1 sm:mb-3">
+          Arrange the Sentence! 📝
         </h3>
         
         <div className="flex justify-center items-center gap-2 sm:gap-4 flex-wrap">

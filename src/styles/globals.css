@@ -73,6 +73,38 @@
     user-select: none;
   }
   
+  /* Touch-friendly button sizes */
+  .touch-button {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Mobile card optimizations */
+  .mobile-card {
+    min-height: 100px;
+    min-width: 100px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Drag and drop optimizations */
+  .draggable-card {
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .droppable-slot {
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
   /* Mobile-friendly animations */
   @media (prefers-reduced-motion: reduce) {
     .animate-pulse-slow {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDraggable } from '@dnd-kit/core';
 import { motion } from 'framer-motion';
 import { Card } from '@/data/levels';
@@ -12,6 +12,8 @@ export const CardComponent: React.FC<CardComponentProps> = ({
   card, 
   isDisabled = false 
 }) => {
+  const [imageError, setImageError] = useState(false);
+  
   const {
     attributes,
     listeners,
@@ -43,21 +45,25 @@ export const CardComponent: React.FC<CardComponentProps> = ({
       whileTap={{ scale: 0.95 }}
       transition={{ duration: 0.2 }}
       className={`
-        relative bg-white rounded-xl sm:rounded-2xl p-2 sm:p-4 card-shadow card-hover cursor-pointer
-        ${isDragging ? 'z-50' : 'z-10'}
+        relative bg-white rounded-xl sm:rounded-2xl p-2 sm:p-3 card-shadow card-hover cursor-grab active:cursor-grabbing draggable-card
+        ${isDragging ? 'z-50 cursor-grabbing' : 'z-10'}
         ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}
-        min-w-[80px] min-h-[100px] sm:min-w-[120px] sm:min-h-[140px] flex flex-col items-center justify-center
-        touch-manipulation select-none
+        min-w-[80px] min-h-[100px] sm:min-w-[100px] sm:min-h-[120px] flex flex-col items-center justify-center
+        select-none
       `}
     >
       {/* Card Image/Emoji */}
-      <div className="text-4xl sm:text-6xl mb-1 sm:mb-2">
-        {card.emoji || '🎨'}
-      </div>
-      
-      {/* Card Label */}
-      <div className="text-sm sm:text-lg font-bold text-gray-800 font-comic text-center">
-        {card.label}
+      <div className="text-4xl sm:text-5xl mb-1 sm:mb-2 flex items-center justify-center">
+        {card.image && !imageError ? (
+          <img 
+            src={card.image} 
+            alt={card.label}
+            className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
+            onError={() => setImageError(true)}
+          />
+        ) : (
+          card.emoji || '🎨'
+        )}
       </div>
       
       {/* Card Type Indicator */}

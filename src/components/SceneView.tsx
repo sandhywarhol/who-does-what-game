@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface SceneViewProps {
@@ -12,43 +12,40 @@ export const SceneView: React.FC<SceneViewProps> = ({
   sceneEmoji, 
   description 
 }) => {
+  const [imageError, setImageError] = useState(false);
+
   return (
-    <div className="w-full max-w-md mx-auto mb-4 sm:mb-8">
+    <div className="w-full max-w-3xl mx-auto mb-1 sm:mb-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="relative bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 card-shadow"
+        className="relative bg-white rounded-xl sm:rounded-3xl p-3 sm:p-6 card-shadow"
       >
         {/* Scene Image */}
-        <div className="flex justify-center items-center h-32 sm:h-48 mb-3 sm:mb-4">
-          {sceneEmoji ? (
-            <motion.div
-              className="text-6xl sm:text-8xl"
-              animate={{ 
-                scale: [1, 1.05, 1], // Kurangi animasi untuk performa lebih baik
-                rotate: [0, 2, -2, 0] // Kurangi rotasi
-              }}
-              transition={{ 
-                duration: 4, // Perpanjang durasi untuk mengurangi frekuensi update
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              {sceneEmoji}
-            </motion.div>
-          ) : (
+        <div className="flex justify-center items-center h-40 sm:h-64 mb-3 sm:mb-6">
+          {sceneImage && !imageError ? (
             <img
               src={sceneImage}
               alt={description}
               className="max-h-full max-w-full object-contain"
-              onError={(e) => {
-                // Fallback ke emoji jika gambar gagal load
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                target.parentElement!.innerHTML = `<div class="text-6xl sm:text-8xl">${sceneEmoji || '🎨'}</div>`;
-              }}
+              onError={() => setImageError(true)}
             />
+          ) : (
+            <motion.div
+              className="text-5xl sm:text-8xl"
+              animate={{ 
+                scale: [1, 1.05, 1],
+                rotate: [0, 2, -2, 0]
+              }}
+              transition={{ 
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              {sceneEmoji || '🎨'}
+            </motion.div>
           )}
         </div>
         

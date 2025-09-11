@@ -1,22 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { audioManager } from '@/lib/audio';
 
 interface ConfettiProps {
   isActive: boolean;
   onComplete: () => void;
+  currentLevel?: number;
+  totalLevels?: number;
 }
 
-export const Confetti: React.FC<ConfettiProps> = ({ isActive, onComplete }) => {
-  const confettiPieces = Array.from({ length: 20 }, (_, i) => i); // Kurangi dari 50 ke 20 untuk performa lebih baik
+export const Confetti: React.FC<ConfettiProps> = ({ 
+  isActive, 
+  onComplete, 
+  currentLevel = 0, 
+  totalLevels = 20 
+}) => {
+  const confettiPieces = Array.from({ length: 20 }, (_, i) => i);
+
+  // Check if this is the final level
+  const isFinalLevel = currentLevel >= totalLevels - 1;
 
   React.useEffect(() => {
     if (isActive) {
+      // Play final level sound if this is the final level
+      if (isFinalLevel) {
+        audioManager.play('thanksForPlaying');
+      }
+      
       const timer = setTimeout(() => {
         onComplete();
-      }, 3000);
+      }, isFinalLevel ? 5000 : 3000); // Longer duration for final level
       return () => clearTimeout(timer);
     }
-  }, [isActive, onComplete]);
+  }, [isActive, onComplete, isFinalLevel]);
 
   if (!isActive) return null;
 
@@ -50,9 +66,9 @@ export const Confetti: React.FC<ConfettiProps> = ({ isActive, onComplete }) => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, type: "spring" }}
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center"
+        className="fixed inset-0 flex items-center justify-center z-50"
       >
-        <div className="bg-white rounded-3xl p-8 card-shadow">
+        <div className="bg-white rounded-3xl p-8 card-shadow mx-4 max-w-md">
           <motion.div
             animate={{ 
               scale: [1, 1.2, 1],
@@ -63,16 +79,32 @@ export const Confetti: React.FC<ConfettiProps> = ({ isActive, onComplete }) => {
               repeat: 3,
               ease: "easeInOut"
             }}
-            className="text-8xl mb-4"
+            className="text-8xl mb-4 text-center"
           >
-            🎉
+            {isFinalLevel ? '🏆' : '🎉'}
           </motion.div>
-          <h2 className="text-3xl font-bold text-primary-600 font-comic mb-2">
-            Bagus Sekali!
-          </h2>
-          <p className="text-lg text-gray-600 font-comic">
-            Kamu pintar! 🌟
-          </p>
+          
+          {isFinalLevel ? (
+            // Final level message
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-primary-600 font-comic mb-4">
+                Thank you Bara for playing this game!
+              </h2>
+              <p className="text-lg text-gray-600 font-comic leading-relaxed">
+                Ask your mother to make more assets if you want to play more games 🌟
+              </p>
+            </div>
+          ) : (
+            // Regular level message
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-primary-600 font-comic mb-2">
+                Good Job Bara!
+              </h2>
+              <p className="text-lg text-gray-600 font-comic">
+                🌟
+              </p>
+            </div>
+          )}
         </div>
       </motion.div>
     </div>
