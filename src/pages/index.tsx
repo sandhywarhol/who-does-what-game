@@ -378,18 +378,18 @@ export default function Game() {
       onDragEnd={handleDragEnd}
       collisionDetection={closestCenter}
     >
-      <div className="min-h-screen p-1 sm:p-2">
-        <div className="max-w-6xl mx-auto">
+      <div className="min-h-screen p-1 sm:p-2 ipad-pro:p-4">
+        <div className="max-w-6xl mx-auto ipad-pro:max-w-7xl">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-1 sm:mb-3"
+            className="text-center mb-1 sm:mb-3 ipad-pro:mb-6"
           >
-            <h1 className="text-lg sm:text-3xl font-bold text-primary-600 font-comic mb-0.5 sm:mb-1">
+            <h1 className="text-lg sm:text-3xl ipad-pro:text-4xl font-bold text-primary-600 font-comic mb-0.5 sm:mb-1 ipad-pro:mb-2">
               Who Does What? 🎯
             </h1>
-            <p className="text-xs sm:text-base text-gray-600 font-comic">
+            <p className="text-xs sm:text-base ipad-pro:text-lg text-gray-600 font-comic">
               Arrange cards to make the correct sentence!
             </p>
           </motion.div>
@@ -420,14 +420,14 @@ export default function Game() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="w-full max-w-3xl mx-auto mt-2 sm:mt-4"
+            className="w-full max-w-3xl mx-auto mt-2 sm:mt-4 ipad-pro:mt-6 ipad-pro:max-w-4xl"
           >
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-4 card-shadow">
-              <h3 className="text-base sm:text-lg font-bold text-center text-gray-800 font-comic mb-2 sm:mb-3">
+            <div className="bg-white rounded-2xl sm:rounded-3xl ipad-pro:rounded-4xl p-3 sm:p-4 ipad-pro:p-6 card-shadow">
+              <h3 className="text-base sm:text-lg ipad-pro:text-xl font-bold text-center text-gray-800 font-comic mb-2 sm:mb-3 ipad-pro:mb-4">
                 Choose Your Cards! 🃏
               </h3>
               
-              <div className="flex justify-center items-center gap-2 sm:gap-4 flex-wrap">
+              <div className="flex justify-center items-center gap-2 sm:gap-4 ipad-pro:gap-6 flex-wrap">
                 {shuffledCards.map((card) => (
                   <CardComponent
                     key={card.id}

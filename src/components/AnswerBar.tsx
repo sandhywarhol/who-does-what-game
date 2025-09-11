@@ -45,13 +45,13 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
       transition={{ duration: 0.2 }}
       className={`
         ${getSlotClass()}
-        min-h-[100px] min-w-[90px] sm:min-h-[120px] sm:min-w-[110px] flex flex-col items-center justify-center
+        min-h-[100px] min-w-[90px] sm:min-h-[120px] sm:min-w-[110px] ipad-pro:min-h-[140px] ipad-pro:min-w-[130px] flex flex-col items-center justify-center
         transition-all duration-300 relative droppable-slot
-        ${isOver ? 'ring-2 sm:ring-4 ring-primary-300 ring-opacity-50' : ''}
+        ${isOver ? 'ring-2 sm:ring-4 ipad-pro:ring-6 ring-primary-300 ring-opacity-50' : ''}
       `}
     >
       {/* Slot Label */}
-      <div className="text-xs sm:text-sm font-bold text-gray-600 font-comic mb-1 sm:mb-2">
+      <div className="text-xs sm:text-sm ipad-pro:text-base font-bold text-gray-600 font-comic mb-1 sm:mb-2 ipad-pro:mb-3">
         {getSlotLabel()}
       </div>
       
@@ -63,15 +63,15 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
           transition={{ duration: 0.3, type: "spring" }}
           className="flex flex-col items-center"
         >
-          <div className="text-3xl sm:text-4xl mb-1 sm:mb-1">
+          <div className="text-3xl sm:text-4xl ipad-pro:text-5xl mb-1 sm:mb-1 ipad-pro:mb-2">
             {card.emoji || '🎨'}
           </div>
-          <div className="text-xs sm:text-sm font-bold text-gray-800 font-comic">
+          <div className="text-xs sm:text-sm ipad-pro:text-base font-bold text-gray-800 font-comic">
             {card.label}
           </div>
         </motion.div>
       ) : (
-        <div className="text-gray-400 text-lg sm:text-2xl">
+        <div className="text-gray-400 text-lg sm:text-2xl ipad-pro:text-3xl">
           {type === 'person' ? '👤' : type === 'action' ? '⚡' : '📦'}
         </div>
       )}
@@ -81,9 +81,9 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-full flex items-center justify-center"
+          className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 ipad-pro:-top-3 ipad-pro:-right-3 w-6 h-6 sm:w-8 sm:h-8 ipad-pro:w-10 ipad-pro:h-10 bg-green-500 rounded-full flex items-center justify-center"
         >
-          <span className="text-white text-sm sm:text-lg">✓</span>
+          <span className="text-white text-sm sm:text-lg ipad-pro:text-xl">✓</span>
         </motion.div>
       )}
       
@@ -91,9 +91,9 @@ export const AnswerSlot: React.FC<AnswerSlotProps> = ({
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-full flex items-center justify-center"
+          className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 ipad-pro:-top-3 ipad-pro:-right-3 w-6 h-6 sm:w-8 sm:h-8 ipad-pro:w-10 ipad-pro:h-10 bg-red-500 rounded-full flex items-center justify-center"
         >
-          <span className="text-white text-sm sm:text-lg">✗</span>
+          <span className="text-white text-sm sm:text-lg ipad-pro:text-xl">✗</span>
         </motion.div>
       )}
     </motion.div>
@@ -115,14 +115,14 @@ export const AnswerBar: React.FC<AnswerBarProps> = ({ slots }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="w-full max-w-3xl mx-auto mb-1 sm:mb-2"
+      className="w-full max-w-3xl mx-auto mb-1 sm:mb-2 ipad-pro:mb-4"
     >
-      <div className="bg-white rounded-2xl sm:rounded-3xl p-2 sm:p-4 card-shadow">
-        <h3 className="text-sm sm:text-lg font-bold text-center text-gray-800 font-comic mb-1 sm:mb-3">
+      <div className="bg-white rounded-2xl sm:rounded-3xl ipad-pro:rounded-4xl p-2 sm:p-4 ipad-pro:p-6 card-shadow">
+        <h3 className="text-sm sm:text-lg ipad-pro:text-xl font-bold text-center text-gray-800 font-comic mb-1 sm:mb-3 ipad-pro:mb-4">
           Arrange the Sentence! 📝
         </h3>
         
-        <div className="flex justify-center items-center gap-2 sm:gap-4 flex-wrap">
+        <div className="flex justify-center items-center gap-2 sm:gap-4 ipad-pro:gap-6 flex-wrap">
           {slots.map((slot, index) => (
             <AnswerSlot
               key={slot.id}
@@ -136,9 +136,9 @@ export const AnswerBar: React.FC<AnswerBarProps> = ({ slots }) => {
         </div>
         
         {/* Arrow indicators */}
-        <div className="flex justify-center items-center mt-3 sm:mt-4 gap-1 sm:gap-2">
-          <span className="text-gray-400 text-sm sm:text-base">→</span>
-          <span className="text-gray-400 text-sm sm:text-base">→</span>
+        <div className="flex justify-center items-center mt-3 sm:mt-4 ipad-pro:mt-6 gap-1 sm:gap-2 ipad-pro:gap-3">
+          <span className="text-gray-400 text-sm sm:text-base ipad-pro:text-lg">→</span>
+          <span className="text-gray-400 text-sm sm:text-base ipad-pro:text-lg">→</span>
         </div>
       </div>
     </motion.div>
